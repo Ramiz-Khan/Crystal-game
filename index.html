@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="style.css">	
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Crystals Game</title>
+</head>
+<body>
+	<div>
+		<h1>Crystals Collector!</h1>
+	</div>
+
+	<div id="instructions">
+		<p>You will be given a random number at the start of the game.</p>
+		<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+		<p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number</p>
+		<p>The value of each crystal is hidden from you until you click on it.</p>
+		<p>Each time whn the game start, the game will change the values of each crystal</p>
+	</div>
+
+	<div id="random-number">
+		
+	</div>
+	<div id="scoreBox"> 
+		<div id="wins">Wins: </div> 
+		<div id="losses">Losses: </div>
+	</div>
+	<div id="crystals">
+		<div class="crystalImage" ><button class="crystal" id="crystal-1" value=""><img src="images/crystal4.jpg" alt="" height="100px" width="150px"></button></div>
+		<div class="crystalImage" ><button class="crystal" id="crystal-2" value=""><img src="images/crystal2.jpg" alt="" height="100px" width="150px"></button></div>
+		<div class="crystalImage" ><button class="crystal" id="crystal-3" value=""><img src="images/crystal1.jpg" alt="" height="100px" width="150px"></button></div>
+		<div class="crystalImage" ><button class="crystal" id="crystal-4" value=""><img src="images/crystal3.jpg" alt="" height="100px" width="150px"></button></div>
+	</div>
+
+	<div id="your">
+		<p>Your total score is:</p>
+	</div>
+
+	<div>
+		<div id="userScore"> 0 </div>
+	</div>
+
+
+	<script>
+
+	$(document).ready(function(){
+	
+
+
+	var userNumber = 0;
+	var randomNumber;
+	var random = (Math.floor(Math.random() * 106) + 19); 
+	var cValOne = (Math.floor(Math.random() * 10) + 1);
+	var cValTwo = (Math.floor(Math.random() * 7) + 1);
+	var cValThree = (Math.floor(Math.random() * 12) + 1);
+	var cValFour = (Math.floor(Math.random() * 5) + 1);
+	
+
+	$("button#crystal-4").attr("value" , cValFour);
+	$("button#crystal-3").attr("value" , cValThree);
+	$("button#crystal-2").attr("value" , cValTwo);
+	$("button#crystal-1").attr("value" , cValOne);
+	
+	$("#random-number").html("<p>"+random+"</p>");
+	$("#userScore").html("<p>"+userNumber+"</p>");
+
+	$("button").click(function(event){
+		
+		///userNumber = (event).val() + userNumber;
+
+
+		 $("button").click(function() {
+    $("#userScore").each(function() {
+     this.value += userNumber;
+    });
+	});
+	
+	})
+
+
+	$("button#crystal-4").click(function(event){
+	
+	var btn4Val = $("button#crystal-4").val();
+	
+	console.log(btn4Val);
+
+	//userScore = btn4Val ++ userScore;
+
+	})
+	
+
+	$("button#crystal-3").click(function(event){
+	
+	var btn4Val = $("button#crystal-3").val();
+	
+	console.log(btn4Val);
+
+	//btn4Val++userScore;
+
+	})
+	
+
+
+	$("button#crystal-2").click(function(event){
+
+	var btn4Val = $("button#crystal-2").val();
+	
+	console.log(btn4Val);
+
+		//btn4Val++userScore;
+
+
+	})
+	
+
+
+
+	$("button#crystal-1").click(function(event){
+
+	var btn4Val = $("button#crystal-1").val();
+	
+	console.log(btn4Val);
+
+	//	btn4Val++userScore;
+
+
+	})
+	
+
+	});
+
+	</script>
+		
+
+
+</body>
+</html>
